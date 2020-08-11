@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+#homeContainer {
+  display: flex;
+  flex-direction: row;
+}
+#displayWorkoutContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 25%;
+}
+#workoutType {
+  border: solid 1px;
+  border-color: grey;
+}
+#containerForm {
+  display: flex;
+  justify-content: right;
+  background-color: blue;
+  width: 50%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

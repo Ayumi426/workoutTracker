@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, "..", "build")));
 
 // outputs the entire table
-app.get("/api/workouts", async (req, res) => {
+app.get("/workouts", async (req, res) => {
   try {
     const workouts = await db.select().table("workouts");
     res.json(workouts);
@@ -20,7 +20,7 @@ app.get("/api/workouts", async (req, res) => {
 });
 
 //outputs by workout
-app.get("/api/workouts/:workout", async (req, res) => {
+app.get("/workouts/:workout", async (req, res) => {
   try {
     let workout = req.params.workout.replace(/^:/, "");
     const workoutHistory = await db
@@ -30,6 +30,19 @@ app.get("/api/workouts/:workout", async (req, res) => {
     res.json(workoutHistory);
   } catch (err) {
     console.error("Error loading locations!", err);
+    res.sendStatus(500);
+  }
+});
+
+//posting a new workout
+app.post("/workouts/add", async (req, res) => {
+  try {
+    console.log("this is req.body", req.body);
+    await db("workout_app").insert(req.body);
+    console.log("success");
+    res.sendStatus(200);
+  } catch (err) {
+    console.error("error adding workout!", err);
     res.sendStatus(500);
   }
 });
