@@ -1,4 +1,4 @@
-# Welcome to Undou Now <br> the Workout Tracker for Rajio Taiso Graduates
+# Welcome to Undou Now <br> Premiere Workout Tracker for Rajio Taiso Graduates
 
 <div align="center">
   <img src="img/logo.png" width="200">
@@ -34,12 +34,6 @@ Future Planned Releases:
 - Ability to add your own workout types
 - Performance history of each workout (monthly, bi-annually, annually)
 - Ability to pull specific workouts by day
-
-## Architecture
-
-<div align="center">
-  <img src="img/ninja_truck_architecture.png" width="860">
-</div>
 
 ## Getting Started: How to <b>"Undou Now"<b>
 
