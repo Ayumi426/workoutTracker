@@ -352,4 +352,4 @@ MigrationBackup/
 #.env file
 .env.*.local
 .env
-.env.local
+.env.local.env
