@@ -1,68 +1,119 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to Undou Now <br> the Workout Tracker for Rajio Taiso Graduates
 
-## Available Scripts
+<div align="center">
+  <img src="img/logo.png" width="200">
+</div>
 
-In the project directory, you can run:
+## Solo Full Stack API Project
 
-### `yarn start`
+- Author: Ayumi Funaki @Ayumi426
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Our awesome features
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Access to our Sevice: https://ayumi-workout-tracking-app.herokuapp.com/
 
-### `yarn test`
+Hello fellow Gym Rats!
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Are you tired of rajio taiso and looking to upgrade your fitness goals? Undou Now is an app made for you!
 
-### `yarn build`
+When you visit the home page, you can see your workout history! You're weekly history is to the left and your complete history is listed at the bottom.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Empty right now? don't worry, you can go a head and add your workouts with our handy form complete with pre-coded workouts!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<div align="center">
+  <img src="img/Homepage.png" width="860">
+</div>
+<br>
+<div align="center">
+  <img src="img/Workout-history.png" width="860">
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Future Planned Releases:
 
-### `yarn eject`
+- Personal Record (PR) view of all of your workouts
+- Ability to add your own workout types
+- Performance history of each workout (monthly, bi-annually, annually)
+- Ability to pull specific workouts by day
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Architecture
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<div align="center">
+  <img src="img/ninja_truck_architecture.png" width="860">
+</div>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Getting Started: How to <b>"Undou Now"<b>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### First Steps
 
-## Learn More
+- Get a gym membership
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Software Version
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- node 12.x
+- yarn 1.22.x
+- psotgres 12.x
 
-### Code Splitting
+### Tested environment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Mac OSX Catalina
+- Heroku(node) + Heroku Postgres
 
-### Analyzing the Bundle Size
+### Install Dependencies
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- type `yarn install` to install dependent softwares.
 
-### Making a Progressive Web App
+### Set up Database
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### Configure your connection to DB
 
-### Advanced Configuration
+- create .env file
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+DB_URL=postgres://username:password@localhost:5432/workout-app
+DB_USER=XusernameX
+DB_PASSWORD=XpasswordX
+DB_HOST=localhost
+DB_PORT=5432
+```
 
-### Deployment
+**Change XusernameX and XpasswordX**
+If you have issues - you may need to change DB to DATABASE in the .env file template given
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### Running default migration file and seeding
 
-### `yarn build` fails to minify
+1. log in to postgres and create database "**workout-app**"
+2. connect to database "**workout-app**"
+3. run `yarn migrate` to run the default migration file
+4. run `yarn seed` or `node ./data/import.js` to seed the data.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Creating new migration file and seeding
+
+- how to
+
+  1. Run `$ knex migrate:make <filename>` to make a new migration file
+  2. Go to the newly created migration file, and write your new schema.
+  3. Now you are ready to migrate!
+     Before running migration, please make sure that the database named "**workout-app**" has already been created.
+  4. Run `yarn migrate` or `$ knex migrate:latest` to run migration file.
+  5. Make sure that the new table named 'locations' is created in your **truckstop** database.
+  6. Run `yarn seed` or `node ./data/import.js` to seed the data into **workout-app**.
+  7. Go into the 'workout-app' database (\c workout-app in psql) and check whether the seeding is succeeded by `SELECT * FROM locations`.
+
+- note
+
+  - These instruction were provided for the purpose of creating a new database.
+    Altering the table structure may disrupt the workings of our app.
+    If changes to these processes become necessary, we will investigate and update this document.
+  - knexfile.js in project folder is created by the command `knex init` just to make knex command available.
+
+- Tips
+  You may want to use pgAdmin4 to display all data using GUI.
+
+### Start Tracking!
+
+- type `yarn build` to build frontend packages.
+- type `yarn start` to start backend API server.
+  API server starts with port 9000 by default
+- type `yarn serve` to start frontend server.
+  frontend server start with prot 3000 by default.
+- access to frontend server! you are almost Ninja!
