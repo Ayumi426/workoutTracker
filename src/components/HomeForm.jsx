@@ -102,7 +102,7 @@ export default function HomeForm() {
             Shoulder Fly
           </button>
           <button
-            id="workoutButton3"
+            id="workoutButton4"
             value="Tricep Extension"
             onClick={(e) => setWorkoutType(e.target.value)}
           >
@@ -116,7 +116,7 @@ export default function HomeForm() {
             Bicep Curl
           </button>
           <button
-            id="workoutButton4"
+            id="workoutButton5"
             value="Front Squat"
             onClick={(e) => setWorkoutType(e.target.value)}
           >
