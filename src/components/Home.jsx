@@ -20,12 +20,17 @@ export default function Home() {
 
   function displayWorkouts() {
     return allWorkouts.map((workouts, index) => {
+      const date = new Date(workouts.date);
       return (
-        <div key={index} id="workoutType">
-          {workouts.workout}
+        <div key={index} id="workoutTypeAll">
+          <div id="title">{workouts.workout}</div>
           <br></br>
-          {workouts.date} | {workouts.reps}x{workouts.sets} |{" "}
-          {workouts.weight_kg}kg ({workouts.weight_lb}lb)
+          <div id="description">
+            {date.toDateString()}
+            <br></br>
+            {workouts.reps}x{workouts.sets} | {workouts.weight_kg}kg (
+            {workouts.weight_lb}lb)
+          </div>
         </div>
       );
     });

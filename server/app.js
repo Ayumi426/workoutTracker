@@ -3,15 +3,19 @@
 const express = require("express");
 const path = require("path");
 const db = require("./knex.js");
+const bodyParser = require("body-parser");
 
 const app = express();
 
 app.use(express.static(path.resolve(__dirname, "..", "build")));
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // outputs the entire table
 app.get("/workouts", async (req, res) => {
   try {
     const workouts = await db.select().table("workouts");
+
     res.json(workouts);
   } catch (err) {
     console.error("Error loading locations!", err);
@@ -38,11 +42,24 @@ app.get("/workouts/:workout", async (req, res) => {
 app.post("/workouts/add", async (req, res) => {
   try {
     console.log("this is req.body", req.body);
-    await db("workout_app").insert(req.body);
+    await db("workouts").insert(req.body);
     console.log("success");
     res.sendStatus(200);
   } catch (err) {
     console.error("error adding workout!", err);
+    res.sendStatus(500);
+  }
+});
+
+//deleting a post
+app.delete("/workouts/:id", async (req, res) => {
+  try {
+    console.log("this is req.body", req.body);
+    await db("workouts").where({ id: req.params.id }).del();
+    console.log("success");
+    res.sendStatus(200);
+  } catch (err) {
+    console.error("Error adding transaction!", err);
     res.sendStatus(500);
   }
 });

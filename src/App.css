@@ -13,15 +13,16 @@
   }
 }
 
-.App-header {
+header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 2vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: large;
   color: white;
+  margin-bottom: 30px;
 }
 
 .App-link {
@@ -31,22 +32,181 @@
 #homeContainer {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+  padding: 5px;
 }
+
+#remove {
+  font-size: small;
+  width: 20px;
+  float: right;
+  padding: 5px;
+  background-color: transparent;
+  color: steelblue;
+  font-weight: bold;
+}
+#removeButtonContainer {
+  height: 20px;
+}
+
 #displayWorkoutContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   flex-grow: 1;
-  width: 25%;
+  width: 75%;
+  margin: 10px;
 }
+
 #workoutType {
-  border: solid 1px;
-  border-color: grey;
+  border: solid 2px;
+  border-color: slategray;
+  margin: 10px;
+  padding: 5px;
+}
+
+#title {
+  text-align: center;
+  font-size: large;
+  color: steelblue;
+  font-weight: bold;
+}
+#card-title {
+  font-size: large;
+  text-align: center;
+  color: slategray;
+}
+#description {
+  font-size: medium;
+  color: steelblue;
+  text-align: center;
+}
+#button-container {
+  margin-bottom: 30px;
+}
+#workoutButton1 {
+  font-size: small;
+  margin: 5px;
+  border-radius: 8px;
+  width: auto;
+  background-color: dodgerblue;
+}
+#workoutButton2 {
+  font-size: small;
+  margin: 5px;
+  border-radius: 8px;
+  width: auto;
+  background-color: crimson;
+}
+#workoutButton3 {
+  font-size: small;
+  margin: 5px;
+  border-radius: 8px;
+  width: auto;
+  background-color: orange;
+}
+#workoutButton4 {
+  font-size: small;
+  margin: 5px;
+  border-radius: 8px;
+  width: auto;
+  background-color: navy;
+}
+#workoutButton5 {
+  font-size: small;
+  margin: 5px;
+  border-radius: 8px;
+  width: auto;
+  background-color: green;
+}
+#workoutButton6 {
+  font-size: small;
+  margin: 5px;
+  border-radius: 8px;
+  width: auto;
+  background-color: hotpink;
 }
 #containerForm {
   display: flex;
-  justify-content: right;
-  background-color: blue;
+  align-items: center;
   width: 50%;
+  flex-direction: column;
+  border: solid 2px;
+  border-color: slategray;
+}
+#addWorkoutForm {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+input {
+  width: calc(100% - 18px);
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #1c87c9;
+  outline: none;
+}
+
+label {
+  align-items: right;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s ease-out;
+  margin-top: 30px;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: none;
+  background: #1c87c9;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+button:hover {
+  background: #2371a0;
+}
+
+#weightContainer {
+  display: flex;
+  align-items: baseline;
+}
+#allWorkouts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#displayWorkoutContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#workoutTypeAll {
+  border: solid 1px;
+  width: 20%;
+  margin: 10px;
+  padding: 5px;
+}
+
+#workoutHistoryTitle {
+  text-align: center;
+  font: medium;
+  color: steelblue;
+}
+#Title {
+  text-align: center;
+  font: large;
+  color: white;
+}
+
+select {
+  margin: 5px;
 }
 @keyframes App-logo-spin {
   from {
